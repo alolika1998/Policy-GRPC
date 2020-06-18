@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+option go_package = ".;proto";
+
+message RequestPolicy {
+    int64 id = 1;
+    string policy_name = 2; 
+    int64 user_id = 3;
+    int64 org_id = 4;
+    string status = 5;
+    string description = 6;
+}
+
+message ResponsePolicy { 
+    string status = 1; 
+}
+
+service PolicyService {
+    rpc CreatePolicy(RequestPolicy) returns (ResponsePolicy);
+}
